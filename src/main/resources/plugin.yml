@@ -1,0 +1,4 @@
+name: Staff
+version: ${project.version}
+main: me.elb1to.watermc.Staff
+description: WaterMC's Staff plugin for BungeeCord
