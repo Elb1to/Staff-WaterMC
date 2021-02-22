@@ -10,9 +10,9 @@ import lombok.Getter;
 @Getter
 public enum StaffRank {
 
-	OWNER("&4❃&l ", "owner"),
-	CO_OWNER("&4✦&l ", "co-owner"),
-	DEVELOPER("&3❈&b&o ", "developer"),
+	OWNER("&4❃&l", "owner"),
+	CO_OWNER("&4✦&l", "co-owner"),
+	DEVELOPER("&3❈&b&o", "developer"),
 	PLAT_ADMIN("&c&o", "platadmin"),
 	SR_ADMIN("&c", "sradmin"),
 	ADMIN("&c", "admin"),
@@ -20,8 +20,7 @@ public enum StaffRank {
 	SR_MOD("&3&o", "srmod"),
 	MOD_PLUS("&5", "mod+"),
 	MOD("&5", "mod"),
-	TRIAL_MOD("&3", "trialmod"),
-	HELPER("&b", "helper");
+	TRIAL_MOD("&3", "trialmod");
 
 	private final String nametag;
 	private final String name;

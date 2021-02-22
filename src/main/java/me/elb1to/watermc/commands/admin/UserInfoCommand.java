@@ -35,6 +35,7 @@ public class UserInfoCommand extends Command {
 		sender.sendMessage(CC.translate("&3 ▶ &fName: &b" + target.getName()));
 		sender.sendMessage(CC.translate("&3 ▶ &fUUID: &b" + target.getUniqueId()));
 		sender.sendMessage(CC.translate("&3 ▶ &fRank: &b" + CC.getRank(target)));
+		//sender.sendMessage(CC.translate("&3 ▶ &fStaff Chat: " + (Staff.getInstance().getStaffChatToggled().contains(target.getUniqueId()) ? "&aON" : "&cOFF")));
 		sender.sendMessage(CC.translate("&3 ▶ &fCurrent Server: &b" + target.getServer().getInfo().getName()));
 		sender.sendMessage(CC.CHAT_BAR);
 	}

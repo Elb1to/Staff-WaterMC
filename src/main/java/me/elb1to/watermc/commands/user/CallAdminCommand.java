@@ -38,11 +38,10 @@ public class CallAdminCommand extends Command {
 		}
 
 		Cooldown.setCooldown(player, "reportCooldown", 90000L);
-		String serverName = Staff.getInstance().getProxy().getPlayer(player.getUniqueId()).getServer().getInfo().getName();
 
-		TextComponent message = new TextComponent(CC.translate("&8[&b" + serverName + "&8] &a" + player.getName() + " &cha solicitado ayuda de un admin. &7(&aClic aquí&7)"));
-		message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(CC.translate("&8(&aClic para ir&8)"))));
-		message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/server " + serverName));
+		TextComponent message = new TextComponent(CC.translate(CC.CHAT_BAR + "\n&c[Admin Required] &8[&b" + player.getServer().getInfo().getName() + "&8] &a" + player.getName() + " &chas requested help!\n" + CC.CHAT_BAR));
+		message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(CC.translate("&8(&aClick Here&8)"))));
+		message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/server " + player.getServer().getInfo().getName()));
 
 		Staff.getInstance().getProxy().getPlayers()
 				.stream()

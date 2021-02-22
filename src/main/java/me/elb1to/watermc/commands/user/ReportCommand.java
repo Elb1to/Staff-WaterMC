@@ -57,14 +57,13 @@ public class ReportCommand extends Command {
 			return;
 		}
 
-		String serverName = Staff.getInstance().getProxy().getPlayer(player.getUniqueId()).getServer().getInfo().getName();
-		TextComponent message = new TextComponent(CC.translate("&b[S] &3[" + serverName + "] &a" + player.getName() + " &7has reported &c" + target.getName() + " &7for &c" + CC.message(args, 1) + ". &8(&aClick to Go&8)"));
-		message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(CC.translate("&8(&aClick to Go&8)"))));
-		message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/server " + serverName));
+		TextComponent message = new TextComponent(CC.translate(CC.CHAT_BAR + "\n&c[Report] &b[" + player.getServer().getInfo().getName() + "] &a" + player.getName() + " &7has reported &c" + target.getName() + "\n&2Reason: &a" + CC.message(args, 1) + ".\n" + CC.CHAT_BAR));
+		message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(CC.translate("&8(&aClick to Go - " + player.getServer().getInfo().getName() + "&8)"))));
+		message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/server " + player.getServer().getInfo().getName()));
 
 		Staff.getInstance().getProxy().getPlayers()
 				.stream()
-				.filter(staff -> !staff.hasPermission("proxy.watermc.staff.report"))
+				.filter(staff -> staff.hasPermission("proxy.watermc.staff.report"))
 				.collect(Collectors.toList())
 				.forEach(staff -> staff.sendMessage(message));
 

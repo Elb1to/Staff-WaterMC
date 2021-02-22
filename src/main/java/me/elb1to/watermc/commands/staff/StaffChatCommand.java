@@ -6,6 +6,8 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
+import java.util.stream.Collectors;
+
 /**
  * Created by Elb1to
  * Project: Staff
@@ -29,12 +31,13 @@ public class StaffChatCommand extends Command {
 			player.sendMessage((CC.translate("&cUsage: /sc <message>")));
 			return;
 		}
-		//if (player.hasPermission("proxy.watermc.staffchat")) {
-		for (ProxiedPlayer staff : Staff.getInstance().getProxy().getPlayers()) {
-			if (staff.hasPermission("proxy.watermc.staffchat")) {
-				staff.sendMessage(CC.translate("&b[S] &3[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + "&7: &b" + CC.message(args, 0)));
-			}
-		}
-		//}
+
+		Staff.getInstance().getProxy().getPlayers()
+				.stream()
+				.filter(staffP -> staffP.hasPermission("proxy.watermc.staffchat"))
+				.collect(Collectors.toList())
+				//.forEach(staffP -> staffP.sendMessage(CC.translate("&3[S] &b[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + player + "&8: " + CC.getChatColor(player) + CC.message(args, 0)))
+				.forEach(staffP -> staffP.sendMessage(CC.translate("&3[S] &b[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + player + "&8: &7" + CC.message(args, 0)))
+		);
 	}
 }

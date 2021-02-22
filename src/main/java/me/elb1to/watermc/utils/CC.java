@@ -67,8 +67,6 @@ public class CC {
 			color = StaffRank.MOD.getNametag();
 		} else if (group.equalsIgnoreCase(StaffRank.TRIAL_MOD.getName())) {
 			color = StaffRank.TRIAL_MOD.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.HELPER.getName())) {
-			color = StaffRank.HELPER.getNametag();
 		} else {
 			color = "&7";
 		}

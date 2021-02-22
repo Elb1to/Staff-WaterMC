@@ -30,14 +30,9 @@ public class StaffListCommand extends Command {
 		);
 
 		sender.sendMessage(CC.CHAT_BAR);
-		for (ProxiedPlayer staff : Staff.getInstance().getProxy().getPlayers()) {
-			if (staff.hasPermission("proxy.watermc.staff")) {
-				sender.sendMessage(CC.translate("&3&lWaterMC &fNetwork"));
-				sender.sendMessage(CC.translate("&7Staff Online: &f" + players.size()));
-				sender.sendMessage(CC.translate(""));
-				sender.sendMessage(CC.translate("Members: " + String.join("&f, ", players)));
-			}
-		}
+		sender.sendMessage(CC.translate("&3&lWaterMC &fNetwork &8- &7Staff Online: &f" + players.size()));
+		sender.sendMessage(CC.translate(""));
+		sender.sendMessage(CC.translate("Members: " + String.join("&f, ", players)));
 		sender.sendMessage(CC.CHAT_BAR);
 	}
 }
