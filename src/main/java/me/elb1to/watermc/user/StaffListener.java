@@ -56,30 +56,5 @@ public class StaffListener implements Listener {
 				}
 			}
 		}
-
-		//if (event.getPlayer().hasPermission("proxy.watermc.staffchat") && Staff.getInstance().getStaffChatToggled().contains(event.getPlayer().getUniqueId())) {
-		//	Staff.getInstance().getStaffChatToggled().remove(event.getPlayer().getUniqueId());
-		//}
-	}
-
-	@EventHandler
-	public void onStaffChatToggled(ChatEvent event) {
-		//ProxiedPlayer player = (ProxiedPlayer) event.getSender();
-		//if (!event.getMessage().equalsIgnoreCase("/tsc") || !event.getMessage().equalsIgnoreCase("/togglestaffchat") || !event.getMessage().equalsIgnoreCase("/togglesc")) {
-		//	if (player.hasPermission("proxy.watermc.staffchat")) {
-		//		if (Staff.getInstance().getStaffChatToggled().contains(player.getUniqueId())) {
-		//			event.setCancelled(true);
-		//			Staff.getInstance().getProxy().getPluginManager().dispatchCommand(player, "/sc " + event.getMessage());
-
-		//Staff.getInstance().getProxy().getPlayers()
-		//		.stream()
-		//		.filter(staffP -> staffP.hasPermission("proxy.watermc.staffchat"))
-		//		.collect(Collectors.toList())
-		//		//.forEach(staffP -> staffP.sendMessage(CC.translate("&3[S] &b[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + player + "&8: &7" + event.getMessage()))
-		//		.forEach(staffP -> Staff.getInstance().getProxy().getPluginManager().dispatchCommand(player, "/sc " + event.getMessage())
-		//);
-		//		}
-		//	}
-		//}
 	}
 }

@@ -45,30 +45,42 @@ public class CC {
 		String color;
 		String group = Objects.requireNonNull(LuckPermsProvider.get().getUserManager().getUser(player.getUniqueId())).getPrimaryGroup();
 
-		if (group.equalsIgnoreCase(StaffRank.OWNER.getName())) {
-			color = StaffRank.OWNER.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.CO_OWNER.getName())) {
-			color = StaffRank.CO_OWNER.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.DEVELOPER.getName())) {
-			color = StaffRank.DEVELOPER.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.PLAT_ADMIN.getName())) {
-			color = StaffRank.PLAT_ADMIN.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.SR_ADMIN.getName())) {
-			color = StaffRank.SR_ADMIN.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.ADMIN.getName())) {
-			color = StaffRank.ADMIN.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.JR_ADMIN.getName())) {
-			color = StaffRank.JR_ADMIN.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.SR_MOD.getName())) {
-			color = StaffRank.SR_MOD.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.MOD_PLUS.getName())) {
-			color = StaffRank.MOD_PLUS.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.MOD.getName())) {
-			color = StaffRank.MOD.getNametag();
-		} else if (group.equalsIgnoreCase(StaffRank.TRIAL_MOD.getName())) {
-			color = StaffRank.TRIAL_MOD.getNametag();
-		} else {
-			color = "&7";
+		switch (group.toLowerCase()) {
+			case "owner":
+				color = StaffRank.OWNER.getNametag();
+				break;
+			case "co-owner":
+				color = StaffRank.CO_OWNER.getNametag();
+				break;
+			case "developer":
+				color = StaffRank.DEVELOPER.getNametag();
+				break;
+			case "platadmin":
+				color = StaffRank.PLAT_ADMIN.getNametag();
+				break;
+			case "sradmin":
+				color = StaffRank.SR_ADMIN.getNametag();
+				break;
+			case "admin":
+				color = StaffRank.ADMIN.getNametag();
+				break;
+			case "jradmin":
+				color = StaffRank.JR_ADMIN.getNametag();
+				break;
+			case "srmod":
+				color = StaffRank.SR_MOD.getNametag();
+				break;
+			case "mod+":
+				color = StaffRank.MOD_PLUS.getNametag();
+				break;
+			case "mod":
+				color = StaffRank.MOD.getNametag();
+				break;
+			case "trialmod":
+				color = StaffRank.TRIAL_MOD.getNametag();
+				break;
+			default:
+				color = "&7";
 		}
 
 		return color;

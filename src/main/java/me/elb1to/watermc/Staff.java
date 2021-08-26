@@ -6,24 +6,18 @@ import me.elb1to.watermc.commands.admin.MaintenanceCommand;
 import me.elb1to.watermc.commands.admin.UserInfoCommand;
 import me.elb1to.watermc.commands.staff.StaffChatCommand;
 import me.elb1to.watermc.commands.staff.StaffListCommand;
-import me.elb1to.watermc.commands.staff.ToggleStaffChatCommand;
 import me.elb1to.watermc.commands.user.CallAdminCommand;
 import me.elb1to.watermc.commands.user.ReportCommand;
 import me.elb1to.watermc.commands.user.RequestCommand;
 import me.elb1to.watermc.user.StaffListener;
 import net.md_5.bungee.api.plugin.Plugin;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-
-@Getter @Setter
+@Getter
 public class Staff extends Plugin {
 
 	@Getter private static Staff instance;
+
 	private boolean maintenance;
-	private Set<UUID> staffChatToggled;
 
 	@Override
 	public void onEnable() {
@@ -37,7 +31,6 @@ public class Staff extends Plugin {
 		// Staff
 		getProxy().getPluginManager().registerCommand(this, new StaffChatCommand());
 		getProxy().getPluginManager().registerCommand(this, new StaffListCommand());
-		getProxy().getPluginManager().registerCommand(this, new ToggleStaffChatCommand());
 
 		// Admin
 		getProxy().getPluginManager().registerCommand(this, new UserInfoCommand());
@@ -51,13 +44,10 @@ public class Staff extends Plugin {
 		getProxy().getPluginManager().unregisterCommands(this);
 		getProxy().getPluginManager().unregisterListeners(this);
 
-		//getStaffChatToggled().clear();
-
 		instance = null;
 	}
 
 	public boolean toggleMaintenance() {
-		maintenance = !maintenance;
-		return maintenance;
+		return maintenance = !maintenance;
 	}
 }

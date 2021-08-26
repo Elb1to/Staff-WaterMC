@@ -36,7 +36,6 @@ public class StaffChatCommand extends Command {
 				.stream()
 				.filter(staffP -> staffP.hasPermission("proxy.watermc.staffchat"))
 				.collect(Collectors.toList())
-				//.forEach(staffP -> staffP.sendMessage(CC.translate("&3[S] &b[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + player + "&8: " + CC.getChatColor(player) + CC.message(args, 0)))
 				.forEach(staffP -> staffP.sendMessage(CC.translate("&3[S] &b[" + player.getServer().getInfo().getName() + "] " + CC.getNameColor(player) + player + "&8: &7" + CC.message(args, 0)))
 		);
 	}
